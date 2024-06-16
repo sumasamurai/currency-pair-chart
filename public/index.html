@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Pair Chart</title>
+  <link rel="stylesheet" href="style.css"></link>
+</head>
+<body>
+  <div class="container">
+    <div class="chart">
+      <div class="currency">
+        <select id="currencyPair">
+          <option value="EURUSD">EUR/USD</option>
+          <option value="USDJPY">USD/JPY</option>
+        </select>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+      <canvas id="chartCanvas" width="1000" height="600"></canvas>
+    </div>
+  </div>
+  <script type="module" src="dist/bundle.js"></script>
+</body>
+</html>
