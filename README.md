@@ -10,6 +10,7 @@ You can checkout the live [demo](https://currency-pair-chart-v2.surge.sh/)
 - Enables selection of a currency pair.
 - Displays grid-lines across the chart.
 - Provides a tooltip with real-time OHLC data.
+- Outputs messages from buttons to the console.
 
 ## 🚀 Quickstart
 
