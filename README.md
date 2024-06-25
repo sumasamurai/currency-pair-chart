@@ -1,6 +1,6 @@
 # Currency Pair Char
 
-You can checkout the live [demo](https://currency-pair-chart.surge.sh/)
+You can checkout the live [demo](https://currency-pair-chart-v2.surge.sh/)
 
 ## 🎯 Existing Functionality
 - Represents bars, displays the price scale, and dates.
