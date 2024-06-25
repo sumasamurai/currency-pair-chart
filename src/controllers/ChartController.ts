@@ -1,19 +1,28 @@
 import { ChartModel } from "../models/ChartModel";
 import { ChartView } from "../views/ChartView";
 import { CandleController } from "./CandleController";
+import { ButtonModel } from "../models/ButtonModel";
+import { ButtonController } from "./ButtonController";
 
 export class ChartController {
   private model: ChartModel;
   private view: ChartView;
   private candleController: CandleController;
+
+  private buttonController1: ButtonController;
+  private buttonController2: ButtonController;
   private isDragging: boolean;
   private dragStartX: number;
   private currency: string | null;
 
-  constructor(model: ChartModel, view: ChartView, candleController: CandleController) {
+  constructor(model: ChartModel, view: ChartView, candleController: CandleController, button1Model: ButtonModel, button2Model: ButtonModel) {
     this.model = model;
     this.view = view;
     this.candleController = candleController;
+
+    this.buttonController1 = new ButtonController(button1Model);
+    this.buttonController2 = new ButtonController(button2Model);
+
     this.isDragging = false;
     this.dragStartX = 0;
     this.currency = null;
@@ -41,9 +50,12 @@ export class ChartController {
     this.view.drawAxes();
     this.view.drawGridLines(minPrice, maxPrice);
     this.candleController.drawCandles(data, startIndex, endIndex, minPrice, maxPrice);
+
     this.view.drawPriceScale(minPrice, maxPrice);
     this.view.drawDateScale(data, startIndex, endIndex);
     this.view.drawVolumes(data, startIndex, endIndex);
+    this.buttonController1.draw(ctx);
+    this.buttonController2.draw(ctx);
   }
 
   handleWheel(event: WheelEvent) {

@@ -1,4 +1,5 @@
 import { IChartData } from "../types/IChartData";
+import { ButtonView } from "./ButtonView";
 
 export class ChartView {
   private canvas: HTMLCanvasElement;
@@ -8,6 +9,7 @@ export class ChartView {
   private chartHeight: number;
   private candleWidthFactor: number;
   private scaleFactor: number;
+  private buttons: ButtonView[];
 
   constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) {
     this.canvas = canvas;
@@ -17,6 +19,14 @@ export class ChartView {
     this.chartHeight = this.canvas.height - this.padding * 2;
     this.candleWidthFactor = 0.5;
     this.scaleFactor = 0.8;
+    this.buttons = [];
+
+    const button1 = new ButtonView(this.context, 50, 50, 100, 30, "Button 1", "Button 1 clicked");
+    const button2 = new ButtonView(this.context, 200, 50, 100, 30, "Button 2", "Button 2 clicked");
+
+    this.buttons.push(button1, button2);
+
+    this.drawButtons();
   }
 
   getScaleFactor(): number {
@@ -45,6 +55,12 @@ export class ChartView {
 
   getCanvas(): HTMLCanvasElement {
     return this.canvas;
+  }
+
+  drawButtons(): void {
+    this.buttons.forEach((button) => {
+      button.draw();
+    });
   }
 
   drawAxes(): void {

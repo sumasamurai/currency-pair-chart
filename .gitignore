@@ -14,3 +14,6 @@ Thumbs.db
 
 # Ignore TypeScript compilation output
 *.js.map
+
+# Ignore changes to build file
+public/dist/bundle.js
